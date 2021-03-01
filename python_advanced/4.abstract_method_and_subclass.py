@@ -1,7 +1,6 @@
 #
 import abc
 
-
 class Tombola(abc.ABC):
 
     @abc.abstractmethod
