@@ -6,6 +6,7 @@ print(x)
 print(dummy)
 
 # %%
+# ist comprehension
 s = [1, 2, 3, 4, 5, 6, 7]
 dummy = [x for x in s if x > 5]
 print(dummy)
@@ -17,7 +18,8 @@ from collections import namedtuple
 
 Card = namedtuple('CARD', ['rank', 'suit'])
 a = Card(2, 'diamonds')
-print(a)
+print(a.rank)
+print(a.suit)
 
 # %%
 # slice
@@ -37,6 +39,7 @@ a = 'adfdsf'
 b = 'dvcvcvc'
 print(a + b)
 
+# object assignment for mutable object will refer to the same reference.
 wierd_board = [['_'] * 3] * 3
 print(wierd_board)
 wierd_board[1][2] = 'o'

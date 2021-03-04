@@ -71,8 +71,6 @@ class Sentence:
         for word in self.words:
             yield word
 
-    return
-
 
 s = Sentence('I am a hero')
 for w in s:

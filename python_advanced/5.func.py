@@ -51,7 +51,7 @@ my_par(1, 3, 4, 5, c=10, e=9, f=8)
 print(my_par.__annotations__)
 print(my_par.__defaults__)
 
-
+#%%
 # decorator
 # actually, for decorator, the following are the same
 
@@ -65,6 +65,7 @@ print(my_par.__defaults__)
 # target = decorator(target)  decorator return a function target that may not be the same as original one
 
 def deco(func):
+    func()
     def inner():
         print('inner!')
 
@@ -75,7 +76,7 @@ def deco(func):
 def target():
     print('target!')
 
-
+print('hello')
 target()
 # decoration will be executed before py is ran, such as when importing the module
 
@@ -83,6 +84,12 @@ target()
 # param field
 b = 6
 
+def f2(a):
+    # global b
+    print(a)
+    print(b)
+
+f2(4)
 
 def f3(a):
     # global b
@@ -179,3 +186,24 @@ def snooze(seconds):
 
 for i in range(3):
     snooze(.123)
+
+#%%
+import time
+def timed(func):
+    def clocked(*_args):
+        t0 = time.time()
+        _result = func(*_args)
+        elapsed = time.time() - t0
+        name = func.__name__
+        args = ','.join(repr(arg) for arg in _args)
+        result = repr(_result)
+        print(f'[{elapsed:0.8f}s] {name}({args}) -> {result}')
+        return _result
+    return clocked
+
+@timed
+def snooze1(seconds):
+    time.sleep(seconds)
+
+for i in range(3):
+    snooze1(1)

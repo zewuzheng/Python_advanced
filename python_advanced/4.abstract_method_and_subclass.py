@@ -43,7 +43,6 @@ class BingoCage(Tombola):
     def pick(self):
         try:
             self._items.pop()
-            self._items.pop()
         except IndexError:
             raise LookupError('pick from empty BingoCage')
 

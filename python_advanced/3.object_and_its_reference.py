@@ -13,10 +13,13 @@ print(id(t1[-1]))
 
 # %%
 # deepcopy and copy
+# copying a list, the element in the list will have same reference
 from copy import deepcopy
 
 a = [3, [1, 2], (1, 2, 3)]
+print(id(a[2]))
 b = list(a)
+print(id(b[2]))
 a[1].append(3)
 print(b)
 

@@ -7,7 +7,7 @@ class Vector():
         self.y = y
 
     def __repr__(self):
-        return 'Vector(%r, %r)' % (self.x, self.y)
+        return 'Vectordd (%r, %r)' % (self.x, self.y)
 
     def __add__(self, other):
         x = self.x + other.x
@@ -90,14 +90,17 @@ print(v1)
 v1_clone = eval(repr(v1))
 print(v1 == v1_clone)
 print(abs(v1))
+for i in v1:
+    print(i)
 
 
 # %%
 # classmethod and staticmethod
-
+# classmethod and staticmethod can be called when object is not initialized. But classmethod can use method of the class, static method cannot
 class Demo():
     def __init__(self):
-        self.num = 0
+        self.num
+        0
 
     @classmethod
     def klassmeth(*args):
@@ -107,7 +110,12 @@ class Demo():
     def statmeth(*args):
         return args
 
+    @classmethod
+    def clsdef(cls):
+        print('class method')
 
+
+Demo.clsdef()
 print(Demo.klassmeth('spam'))
 print(Demo.statmeth('spam'))
 
@@ -198,12 +206,12 @@ class Vector:
             raise AttributeError('{.__name__!r} object cant set attribute'.format(cls))
         super().__setattr__(key, value)
 
+
 a = Vector([3, 4, 5])
 print(a.x)
 print(a[0])
 a.x = 10
 print(a.x)
-
 
 # %%
 from array import array
